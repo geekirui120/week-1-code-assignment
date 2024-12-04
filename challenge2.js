@@ -1,19 +1,21 @@
-function speedDetector() {
-    const speed = prompt("Enter the speed of the car:");
-    //lets set the speed limit to 70 for every 5km
+function speedDetector(speed) {
+    // Let's set the speed limit to 70
     const limit = 70;
     const kmPerPoint = 5;
 
     if (speed <= limit) {
-        console.log("Ok");
+        return "Ok";
     } else {
         const points = Math.floor((speed - limit) / kmPerPoint);
         if (points > 12) {
-            console.log("License suspended");
-        } else 
-            console.log(`Points: ${points}`);
+            return "License suspended";
+        } else {
+            return `Points: ${points}`;
         }
     }
 }
 
-speedDetector();
+// Test the function
+console.log(speedDetector(55)); // Output: Ok
+console.log(speedDetector(85)); // Output: Points: 1
+console.log(speedDetector(120)); // Output: License suspended
